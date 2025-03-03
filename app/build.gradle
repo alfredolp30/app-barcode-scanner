@@ -1,0 +1,82 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.google.devtools.ksp'
+}
+
+android {
+    signingConfigs {
+        signed {
+            storeFile file('alplabs_release.keystore')
+            storePassword 'G7PSJx:}\\bR\\{qX8'
+            keyAlias = 'alias'
+            keyPassword 'G7PSJx:}\\bR\\{qX8'
+        }
+    }
+
+    namespace 'com.alplabs.barcodescanner'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.alplabs.filebarcodescanner"
+        minSdk 24
+        targetSdk 35
+        versionCode 39
+        versionName "6.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.signed
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = 11
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.15.0'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.8.7'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7'
+    implementation "androidx.fragment:fragment-ktx:1.8.6"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+
+    //ROOM
+    implementation("androidx.room:room-runtime:$rootProject.libs.roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$rootProject.libs.roomVersion")
+    ksp("androidx.room:room-compiler:$rootProject.libs.roomVersion")
+    implementation("androidx.room:room-ktx:$rootProject.libs.roomVersion")
+    testImplementation("androidx.room:room-testing:$rootProject.libs.roomVersion")
+
+
+    // COIL
+    implementation "io.coil-kt:coil:$rootProject.libs.coilVersion"
+
+    // MLKIT BARCODE
+    implementation "com.google.android.gms:play-services-mlkit-barcode-scanning:$rootProject.libs.mlkitBarcodeVersion"
+
+    // MLKIT TEXT
+    implementation "com.google.android.gms:play-services-mlkit-text-recognition:$rootProject.libs.mlkitTextVersion"
+
+    //PDFIUM
+    implementation "com.github.barteksc:pdfium-android:$rootProject.libs.pdfiumVersion"
+}

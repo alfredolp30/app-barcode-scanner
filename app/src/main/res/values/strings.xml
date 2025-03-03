@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Facilitador de Boletos</string>
+
+    <string-array name="tab_titles">
+        <item>Leitura</item>
+        <item>Histórico</item>
+    </string-array>
+
+    <string name="scanner_from_file_btn">Arquivo</string>
+    <string name="scanner_from_camera_btn">Câmera</string>
+    <string name="cell_title_default">Sem nome</string>
+
+    <string name="delete_barcode_success">Código excluído com sucesso</string>
+    <string name="not_found_barcode">Não foi encontrado</string>
+
+    <string name="alert_title">Pesquisando no arquivo</string>
+    <string name="alert_cancel">Cancelar</string>
+
+    <string name="alert_password_title">Digite a senha do arquivo %1$s</string>
+    <string name="alert_password_confirm_button">Confirmar</string>
+    <string name="alert_password_cancel_button">Cancelar</string>
+
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff9800</color>
+    <color name="colorSecondary">#272625</color>
+    <color name="colorAccent">#ff9800</color>
+    <color name="colorDelete">#A20C0C</color>
+    <color name="colorBackgroundCamera">#4D1F2327</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+    <color name="statusBarColor">#272625</color>
+    <color name="toolbarColor">#474646</color>
+
+    <color name="tabTextColor">#A8A8A8</color>
+    <color name="tabIndicatorColor">#FFB951</color>
+    <color name="tabSelectedTextColor">#FFFFFF</color>
+    <color name="tabBackgroundColor">#474646</color>
+</resources>
