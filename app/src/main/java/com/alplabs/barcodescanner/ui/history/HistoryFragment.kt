@@ -50,9 +50,12 @@ class HistoryFragment : Fragment(), HistoryBarcodeAdapter.Listener {
         return binding.root
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUp()
+    }
 
+    private fun setUp() {
         viewModel = ViewModelProvider(this).get(HistoryViewModel::class.java)
 
         viewModel.barcodeModels.observe(viewLifecycleOwner) {
@@ -82,6 +85,12 @@ class HistoryFragment : Fragment(), HistoryBarcodeAdapter.Listener {
     private fun showBarcodeModels(barcodeModels: List<BarcodeModel>) {
         adapter = HistoryBarcodeAdapter(barcodeModels.toMutableList(), isLastBarcodeOnly, this)
         binding.rcBarcodes.adapter = adapter
+
+        binding.emptyTextView.visibility = if (barcodeModels.isEmpty()) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
     }
 
     override fun onCopyBarcode(barcodeModel: BarcodeModel) {

@@ -58,9 +58,12 @@ class BarcodeReadFragment : Fragment() {
         return binding.root
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUp()
+    }
 
+    private fun setUp() {
         binding.scannerCameraBtn.setOnClickListener {
             openCamera()
         }
@@ -68,7 +71,6 @@ class BarcodeReadFragment : Fragment() {
         binding.scannerFileBtn.setOnClickListener {
             pickFile()
         }
-
 
         viewModel = ViewModelProvider(this).get(BarcodeReadViewModel::class.java)
 
